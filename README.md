@@ -1,0 +1,2 @@
+# servix
+Minecraft services
