@@ -2,15 +2,13 @@ package com.ulfric.servix;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import com.ulfric.commons.service.Service;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class Services { // TODO thread safety
+class Services { // TODO thread safety
 
 	private static final Map<Class<? extends Service>, List<Service>> SERVICES = new HashMap<>();
 

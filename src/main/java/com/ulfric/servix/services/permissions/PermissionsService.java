@@ -1,13 +1,17 @@
-package com.ulfric.servix.services;
+package com.ulfric.servix.services.permissions;
 
-import com.ulfric.commons.service.Service;
 import com.ulfric.embargo.entity.Group;
 import com.ulfric.embargo.entity.User;
+import com.ulfric.servix.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface PermissionsService extends Service {
+
+	static PermissionsService get() {
+		return Service.get(PermissionsService.class);
+	}
 
 	List<User> getActiveUsers();
 
