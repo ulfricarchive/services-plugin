@@ -17,8 +17,8 @@ public class TeleportPendingEvent extends EntityTeleportEvent {
 
 	private Duration delay;
 
-	public TeleportPendingEvent(Entity what, Location from, Location to, Duration delay) {
-		super(what, from, to);
+	public TeleportPendingEvent(Entity what, Location to, Duration delay) {
+		super(what, what.getLocation(), to);
 	}
 
 	public void setDelay(Duration delay) {

@@ -3,10 +3,10 @@ package com.ulfric.servix.services.teleport;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
+import com.ulfric.palpatine.Task;
 import com.ulfric.servix.Service;
 
 import java.time.Duration;
-import java.util.Optional;
 
 public interface TeleportService extends Service {
 
@@ -14,10 +14,10 @@ public interface TeleportService extends Service {
 		return Service.get(TeleportService.class);
 	}
 
-	TeleportTask teleport(Entity entity, Location location);
+	Task teleport(Entity entity, Location location);
 
-	TeleportTask teleport(Entity entity, Location location, Duration delay);
+	Task teleport(Entity entity, Location location, Duration when);
 
-	Optional<TeleportTask> getPending(Entity entity);
+	Task getPending(Entity entity);
 
 }

@@ -1,11 +1,10 @@
 package com.ulfric.servix.services.teleport;
 
-import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.HandlerList;
-import org.bukkit.event.entity.EntityTeleportEvent;
+import org.bukkit.event.entity.EntityEvent;
 
-public class TeleportCancelEvent extends EntityTeleportEvent {
+public class TeleportCancelEvent extends EntityEvent {
 
 	private static final HandlerList HANDLERS = new HandlerList();
 
@@ -13,8 +12,8 @@ public class TeleportCancelEvent extends EntityTeleportEvent {
 		return HANDLERS;
 	}
 
-	public TeleportCancelEvent(Entity what, Location from, Location to) {
-		super(what, from, to);
+	public TeleportCancelEvent(Entity what) {
+		super(what);
 	}
 
 	@Override
