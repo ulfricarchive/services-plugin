@@ -18,7 +18,6 @@ public class LifecycleStageEvent extends Event {
 
 	public LifecycleStageEvent(LifecycleService lifecycle, Stage newStage) {
 		Objects.requireNonNull(lifecycle, "lifecycle");
-		Objects.requireNonNull(newStage, "newStage");
 
 		this.lifecycle = lifecycle;
 		this.newStage = newStage;
