@@ -8,6 +8,18 @@ public interface LocaleService extends Service {
 		return Service.get(LocaleService.class);
 	}
 
+	static String defaultMessage(String code) {
+		LocaleService service = get();
+
+		if (service == null) {
+			return code;
+		}
+
+		return service.defaultLocale().getMessage(code);
+	}
+
 	Locale getLocale(String code);
+
+	Locale defaultLocale();
 
 }
