@@ -14,17 +14,23 @@ public class LifecycleStageEvent extends Event {
 	}
 
 	private final LifecycleService lifecycle;
+	private final Stage oldStage;
 	private final Stage newStage;
 
-	public LifecycleStageEvent(LifecycleService lifecycle, Stage newStage) {
+	public LifecycleStageEvent(LifecycleService lifecycle, Stage oldStage, Stage newStage) {
 		Objects.requireNonNull(lifecycle, "lifecycle");
 
 		this.lifecycle = lifecycle;
+		this.oldStage = oldStage;
 		this.newStage = newStage;
 	}
 
 	public final LifecycleService getLifecycle() {
 		return lifecycle;
+	}
+
+	public Stage getOldStage() {
+		return oldStage;
 	}
 
 	public Stage getNewStage() {
