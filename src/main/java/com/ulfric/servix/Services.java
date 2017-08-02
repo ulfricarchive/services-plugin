@@ -10,21 +10,21 @@ import java.util.Objects;
 
 class Services { // TODO thread safety
 
-	private static final Map<Class<? extends Service>, List<Service>> SERVICES = new HashMap<>();
+	private static final Map<Class<? extends Service<?>>, List<Service<?>>> SERVICES = new HashMap<>();
 
-	public static <S extends Service> S get(Class<S> service) { // TODO cleanup method
-		List<Service> services = SERVICES.get(service);
+	public static <S extends Service<S>> S get(Class<S> service) { // TODO cleanup method
+		List<Service<?>> services = SERVICES.get(service);
 		return CollectionUtils.isEmpty(services) ? null : service.cast(services.get(0));
 	}
 
-	public static void register(Service service) {
+	public static void register(Service<?> service) {
 		Objects.requireNonNull(service, "service");
 
 		SERVICES.computeIfAbsent(service.getService(), ignore -> new ArrayList<>()) // TODO validate service type
-		.add(service); // TODO contains to prevent duplicates
+			.add(service); // TODO contains to prevent duplicates
 	}
 
-	public static void unregister(Service service) {
+	public static void unregister(Service<?> service) {
 		Objects.requireNonNull(service, "service");
 
 		SERVICES.values().forEach(services -> services.remove(service));

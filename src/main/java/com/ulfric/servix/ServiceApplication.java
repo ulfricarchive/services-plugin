@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class ServiceApplication extends Application {
 
-	private final Service service;
+	private final Service<?> service;
 
-	public ServiceApplication(Service service) {
+	public ServiceApplication(Service<?> service) {
 		Objects.requireNonNull(service, "service");
 
 		this.service = service;

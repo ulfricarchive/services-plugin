@@ -7,7 +7,7 @@ import com.ulfric.servix.Service;
 import java.util.List;
 import java.util.UUID;
 
-public interface PermissionsService extends Service {
+public interface PermissionsService extends Service<PermissionsService> {
 
 	static PermissionsService get() {
 		return Service.get(PermissionsService.class);

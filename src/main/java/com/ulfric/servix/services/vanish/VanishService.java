@@ -4,7 +4,7 @@ import com.ulfric.servix.Service;
 
 import java.util.UUID;
 
-public interface VanishService extends Service {
+public interface VanishService extends Service<VanishService> {
 
 	static VanishService get() {
 		return Service.get(VanishService.class);

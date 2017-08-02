@@ -8,7 +8,7 @@ import com.ulfric.servix.Service;
 
 import java.time.Duration;
 
-public interface TeleportService extends Service {
+public interface TeleportService extends Service<TeleportService> {
 
 	static TeleportService get() {
 		return Service.get(TeleportService.class);

@@ -7,7 +7,7 @@ public class ServiceFeature extends Feature {
 
 	@Override
 	public Application apply(Object service) {
-		return service instanceof Service ? new ServiceApplication((Service) service) : null;
+		return service instanceof Service ? new ServiceApplication((Service<?>) service) : null;
 	}
 
 }
