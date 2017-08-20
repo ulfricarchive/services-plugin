@@ -12,7 +12,7 @@ public interface LocaleService extends Service<LocaleService> {
 		return Service.get(LocaleService.class);
 	}
 
-	static BukkitLocale getLocale(Player player) {
+	static BukkitMessageLocale getLocale(Player player) {
 		LocaleService service = get();
 
 		if (service == null) {
@@ -23,7 +23,7 @@ public interface LocaleService extends Service<LocaleService> {
 	}
 
 	static Message getMessage(Player target, String key, Details details) {
-		BukkitLocale locale = getLocale(target);
+		BukkitMessageLocale locale = getLocale(target);
 
 		if (locale == null) {
 			return null;
@@ -33,7 +33,7 @@ public interface LocaleService extends Service<LocaleService> {
 	}
 
 	static Message getMessage(Player target, String key) {
-		BukkitLocale locale = getLocale(target);
+		BukkitMessageLocale locale = getLocale(target);
 
 		if (locale == null) {
 			return null;
@@ -42,8 +42,8 @@ public interface LocaleService extends Service<LocaleService> {
 		return locale.getMessage(target, key);
 	}
 
-	BukkitLocale getLocale(String code);
+	BukkitMessageLocale getLocale(String code);
 
-	BukkitLocale defaultLocale();
+	BukkitMessageLocale defaultLocale();
 
 }
