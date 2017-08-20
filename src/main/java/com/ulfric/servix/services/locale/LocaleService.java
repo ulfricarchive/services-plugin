@@ -2,9 +2,8 @@ package com.ulfric.servix.services.locale;
 
 import org.bukkit.entity.Player;
 
+import com.ulfric.i18n.content.Details;
 import com.ulfric.servix.Service;
-
-import java.util.Map;
 
 public interface LocaleService extends Service<LocaleService> {
 
@@ -22,7 +21,7 @@ public interface LocaleService extends Service<LocaleService> {
 		return service.defaultLocale().getMessage(code);
 	}
 
-	static Locale getLocale(Player player) {
+	static BukkitLocale getLocale(Player player) {
 		LocaleService service = get();
 
 		if (service == null) {
@@ -32,18 +31,18 @@ public interface LocaleService extends Service<LocaleService> {
 		return service.getLocale(player.getLocale());
 	}
 
-	static String getMessage(Player target, String key, Map<String, String> context) {
-		Locale locale = getLocale(target);
+	static String getMessage(Player target, String key, Details details) {
+		BukkitLocale locale = getLocale(target);
 
 		if (locale == null) {
 			return null;
 		}
 
-		return locale.getMessage(target, key, context);
+		return locale.getMessage(target, key, details);
 	}
 
 	static String getMessage(Player target, String key) {
-		Locale locale = getLocale(target);
+		BukkitLocale locale = getLocale(target);
 
 		if (locale == null) {
 			return null;
@@ -52,8 +51,8 @@ public interface LocaleService extends Service<LocaleService> {
 		return locale.getMessage(target, key);
 	}
 
-	Locale getLocale(String code);
+	BukkitLocale getLocale(String code);
 
-	Locale defaultLocale();
+	BukkitLocale defaultLocale();
 
 }

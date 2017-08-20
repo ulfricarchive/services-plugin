@@ -1,11 +1,10 @@
 package com.ulfric.servix.services.locale;
 
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandSender;
 
 import com.ulfric.andrew.Sender;
+import com.ulfric.i18n.content.Details;
 import com.ulfric.servix.Service;
-
-import java.util.Map;
 
 public interface TellService extends Service<TellService> {
 
@@ -21,7 +20,7 @@ public interface TellService extends Service<TellService> {
 		}
 	}
 
-	static void sendMessage(Player target, String message) {
+	static void sendMessage(CommandSender target, String message) {
 		TellService tell = TellService.get();
 
 		if (tell != null) {
@@ -29,28 +28,28 @@ public interface TellService extends Service<TellService> {
 		}
 	}
 
-	static void sendMessage(Sender target, String message, Map<String, String> context) {
+	static void sendMessage(Sender target, String message, Details details) {
 		TellService tell = TellService.get();
 
 		if (tell != null) {
-			tell.send(target, message, context);
+			tell.send(target, message, details);
 		}
 	}
 
-	static void sendMessage(Player target, String message, Map<String, String> context) {
+	static void sendMessage(CommandSender target, String message, Details details) {
 		TellService tell = TellService.get();
 
 		if (tell != null) {
-			tell.send(target, message, context);
+			tell.send(target, message, details);
 		}
 	}
 
 	void send(Sender target, String message);
 
-	void send(Player target, String message);
+	void send(CommandSender target, String message);
 
-	void send(Sender target, String message, Map<String, String> context);
+	void send(Sender target, String message, Details details);
 
-	void send(Player target, String message, Map<String, String> context);
+	void send(CommandSender target, String message, Details details);
 
 }
