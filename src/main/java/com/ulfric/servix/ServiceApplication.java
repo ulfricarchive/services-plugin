@@ -14,11 +14,24 @@ public class ServiceApplication extends Application {
 	@Inject
 	private ObjectFactory factory;
 
+	public ServiceApplication() {
+		if (!(this instanceof Service)) {
+			throw new IllegalStateException(this + " is not a service!");
+		}
+
+		this.service = (Service<?>) this;
+		addHooks();
+	}
+
 	public ServiceApplication(Service<?> service) {
 		Objects.requireNonNull(service, "service");
 
 		this.service = service;
 
+		addHooks();
+	}
+
+	private void addHooks() {
 		addBootHook(this::register);
 		addShutdownHook(this::unregister);
 	}
