@@ -19,6 +19,8 @@ public interface PermissionsService extends Service<PermissionsService> {
 
 	User getUserByUniqueId(UUID uniqueId);
 
+	User createUser(UUID uniqueId);
+
 	User createUser(UUID uniqueId, String name);
 
 	Group getGroupByName(String name);

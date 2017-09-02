@@ -2,7 +2,8 @@ package com.ulfric.servix;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import java.util.ArrayList;
+import com.ulfric.commons.collection.Computations;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ class Services {
 		Objects.requireNonNull(service, "service");
 		Objects.requireNonNull(service.getService(), "service.getService");
 
-		List<Service<?>> services = SERVICES.computeIfAbsent(service.getService(), ignore -> new ArrayList<>());
+		List<Service<?>> services = SERVICES.computeIfAbsent(service.getService(), Computations::newArrayListIgnoring);
 		if (services.contains(service)) {
 			return;
 		}
