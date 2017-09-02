@@ -8,20 +8,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-class Services { // TODO thread safety
+class Services {
 
 	private static final Map<Class<? extends Service<?>>, List<Service<?>>> SERVICES = new HashMap<>();
 
-	public static <S extends Service<S>> S get(Class<S> service) { // TODO cleanup method
+	public static <S extends Service<S>> S get(Class<S> service) {
 		List<Service<?>> services = SERVICES.get(service);
 		return CollectionUtils.isEmpty(services) ? null : service.cast(services.get(0));
 	}
 
 	public static void register(Service<?> service) {
 		Objects.requireNonNull(service, "service");
+		Objects.requireNonNull(service.getService(), "service.getService");
 
-		SERVICES.computeIfAbsent(service.getService(), ignore -> new ArrayList<>()) // TODO validate service type
-			.add(service); // TODO contains to prevent duplicates
+		List<Service<?>> services = SERVICES.computeIfAbsent(service.getService(), ignore -> new ArrayList<>());
+		if (services.contains(service)) {
+			return;
+		}
+		services.add(service);
 	}
 
 	public static void unregister(Service<?> service) {

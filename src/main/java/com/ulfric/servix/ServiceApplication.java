@@ -42,7 +42,7 @@ public class ServiceApplication extends Application {
 		factory.bind(Classes.getNonDynamic(service.getClass())).toValue(service);
 	}
 
-	private void unregister() { // TODO fix leaking services
+	private void unregister() {
 		Services.unregister(service);
 	}
 
