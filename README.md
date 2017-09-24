@@ -1,2 +1,2 @@
-# servix
-Minecraft services
+# services-plugin
+Minecraft services plugin
