@@ -1,4 +1,4 @@
-package com.ulfric.servix;
+package com.ulfric.plugin.services;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-class Services {
+class ServiceRegistry {
 
 	private static final Map<Class<? extends Service<?>>, List<Service<?>>> SERVICES = new HashMap<>();
 
@@ -35,7 +35,7 @@ class Services {
 		SERVICES.values().forEach(services -> services.remove(service));
 	}
 
-	private Services() {
+	private ServiceRegistry() {
 	}
 
 }

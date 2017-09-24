@@ -1,4 +1,4 @@
-package com.ulfric.servix;
+package com.ulfric.plugin.services;
 
 import com.ulfric.dragoon.ObjectFactory;
 import com.ulfric.dragoon.application.Application;
@@ -37,13 +37,13 @@ public class ServiceApplication extends Application {
 	}
 
 	private void register() {
-		Services.register(service);
+		ServiceRegistry.register(service);
 		factory.bind(Classes.getNonDynamic(service.getService())).toValue(service);
 		factory.bind(Classes.getNonDynamic(service.getClass())).toValue(service);
 	}
 
 	private void unregister() {
-		Services.unregister(service);
+		ServiceRegistry.unregister(service);
 	}
 
 }

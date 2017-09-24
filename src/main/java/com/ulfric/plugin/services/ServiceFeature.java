@@ -1,4 +1,4 @@
-package com.ulfric.servix;
+package com.ulfric.plugin.services;
 
 import com.ulfric.dragoon.ObjectFactory;
 import com.ulfric.dragoon.application.Application;
