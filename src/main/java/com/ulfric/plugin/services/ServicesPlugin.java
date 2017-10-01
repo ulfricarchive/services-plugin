@@ -2,9 +2,9 @@ package com.ulfric.plugin.services;
 
 import com.ulfric.plugin.Plugin;
 
-public class Services extends Plugin {
+public class ServicesPlugin extends Plugin {
 
-	public Services() {
+	public ServicesPlugin() {
 		install(ServiceFeature.class);
 	}
 
