@@ -2,5 +2,4 @@ name: Services
 main: com.ulfric.plugin.services.ServicesPlugin
 version: 1.0.0
 author: Ulfric LLC
-load: STARTUP
-depend: [Platform, Scoreboard, Commands]
+depend: [Platform]
